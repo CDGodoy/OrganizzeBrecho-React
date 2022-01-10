@@ -6,7 +6,7 @@ import UserList from "./pages/userList/UserList";
 
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route
 } from "react-router-dom";
 
@@ -18,9 +18,12 @@ function App() {
       <div className="container">
         <Sidebar />
 
-        <Switch>
-          <Route path="/" component={Home} exact/>
-        </Switch>
+        <Routes>
+          <Route path="/" element={<Home/>} exact/>
+        </Routes>
+        <Routes>
+          <Route path="/users" element={<UserList/>} exact/>
+        </Routes>
         
       </div>
     </Router>
