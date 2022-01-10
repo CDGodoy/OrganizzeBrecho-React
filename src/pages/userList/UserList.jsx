@@ -1,30 +1,57 @@
-import React from 'react'
+import { React, useState } from 'react'
 import './userList.css'
 import { DataGrid } from '@material-ui/data-grid';
+import { DeleteOutline, Edit, Visibility } from '@material-ui/icons';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+  Link
+} from "react-router-dom";
+
 
 export default function UserList() {
 
+  const navigate = useNavigate();
+
     const columns = [
-        { field: 'id', headerName: 'ID', width: 70 },
-        { field: 'firstName', headerName: 'First name', width: 130 },
-        { field: 'lastName', headerName: 'Last name', width: 130 },
+        { field: 'id', headerName: 'ID', flex:0.6 ,minWidth: 50 },
+        { field: 'firstName', headerName: 'First name',  flex:1 ,minWidth: 90  },
+        { field: 'lastName', headerName: 'Last name', flex:1 ,minWidth: 90  },
         {
           field: 'age',
           headerName: 'Age',
-          type: 'number',
-          width: 90,
+          type: 'number', flex:1 ,minWidth: 90 
         },
         {
           field: 'fullName',
           headerName: 'Full name',
           description: 'This column has a value getter and is not sortable.',
           sortable: false,
-          width: 160,
+          flex:1 ,minWidth: 90 
+        },
+        {
+          field: 'action',
+          headerName: "Action", 
+          flex:1 ,minWidth: 90,
+          renderCell: (params)=>{
+            return(
+              <div style={{display: "flex", gap: "8px"}}>
+              <div className="userListView"  onClick={()=>{navigate(`/costumers/view/${params.row.id}`)}}><Visibility /></div>
+
+                <div onClick={()=>{navigate(`/users/${params.row.id}`)}} className="userListEdit"><Edit /></div>
+            
+              <div className="userListDelete"  onClick={()=>{alert("DELETAR AINDA NAO DISPONIVEL")}}><DeleteOutline /></div>
+              
+              </div>
+              )
+          }
         },
       ];
       
       const rows = [
-        { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
+        { id: 9999, lastName: 'Snow', firstName: 'Jon', age: 35 },
         { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
         { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
         { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
@@ -40,10 +67,11 @@ export default function UserList() {
         <div className="userList">
             <DataGrid
         rows={rows}
+        disableSelectionOnClick
         columns={columns}
-        pageSize={5}
+        pageSize={8}
         rowsPerPageOptions={[5]}
-        checkboxSelection
+        disableColumnMenu
       />
         </div>
     )

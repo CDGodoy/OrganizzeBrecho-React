@@ -36,12 +36,16 @@
     display: flex;
     flex-direction: column;
 }
+
 .widgetSmUserName{
     font-weight: 600;
+    display: flex;
 }
 
 .widgetSmUserTitle{
     font-weight: 300;
+    display: flex;
+    justify-content: center;
 }
 
 .widgetSmButton{

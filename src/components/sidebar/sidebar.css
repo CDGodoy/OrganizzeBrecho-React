@@ -22,6 +22,7 @@
 .sidebarList{
     list-style: none;
     padding: 5px;
+    max-width: 150px;
 }
 
 .sidebarListItem{
@@ -39,4 +40,8 @@
 .sidebarIcon{
     margin-right: 5px;
     font-size: 20px !important;
+}
+
+.sidebar{
+    max-width: 200px;
 }

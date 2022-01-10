@@ -17,15 +17,15 @@
     border-radius: 10px;
 }
 
-.widgetLgButton.Approved{
+.widgetLgButton.Aprovado{
     background-color: #e5faf2;
 }
 
-.widgetLgButton.Declined{
+.widgetLgButton.Cancelado{
     background-color: #fff0f1;
 }
 
-.widgetLgButton.Pending{
+.widgetLgButton.Pendente{
     background-color: #ebf1fe;
 }
 

@@ -3,12 +3,12 @@ import Sidebar from "./components/sidebar/sidebar";
 import "./app.css";
 import Home from "./pages/home/Home";
 import UserList from "./pages/userList/UserList";
-
 import {
   BrowserRouter as Router,
   Routes,
   Route
 } from "react-router-dom";
+import CostumerView from "./pages/costumerView/CostumerView";
 
 
 function App() {
@@ -20,10 +20,12 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home/>} exact/>
+
+          <Route path="/costumers" element={<UserList/>} exact/>
+
+          <Route path="/costumers/view/:id" element={<CostumerView/>} exact/>
         </Routes>
-        <Routes>
-          <Route path="/users" element={<UserList/>} exact/>
-        </Routes>
+
         
       </div>
     </Router>
